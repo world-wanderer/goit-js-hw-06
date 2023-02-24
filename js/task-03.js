@@ -15,23 +15,11 @@ const images = [
 
 const itemsContainer = document.querySelector(".gallery");
 
-const elements = images.map((image) => {
-  return itemsContainer.insertAdjacentHTML(
-    `beforeend`,
-    `<li><img alt = ${image.alt} src = ${image.url}/></li>`
-  );
-});
+itemsContainer.insertAdjacentHTML(
+  `beforeend`,
+  images
+    .map((image) => `<li><img alt = ${image.alt} src = ${image.url}/></li>`)
+    .join("")
+);
+
 console.log(itemsContainer);
-
-// const elements = images.map((image) => {
-//   const itemEl = document.createElement("li");
-//   const imageEl = document.createElement("img");
-//   imageEl.src = image.url;
-//   imageEl.alt = image.alt;
-//   itemEl.appendChild(imageEl);
-
-//   return itemEl;
-// });
-
-// itemsContainer.append(...elements);
-// console.log(itemsContainer);
